@@ -46,6 +46,10 @@ export function stopTracking() {
   return { type: STOP_TRACKING };
 }
 
+export function processMeasurement(payload) {
+  return { type: PROCESS_MEASUREMENT, payload };
+}
+
 function trackEpic(action$, state$) {
   return action$.pipe(
     ofType(TRACK),
