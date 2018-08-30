@@ -33,6 +33,13 @@ export default function(
       }
     case STOP_TRACKING:
       return { ...state, tracking: false, trackingKey: null };
+    case PROCESS_MEASUREMENT:
+      const { speed: currentSpeed, measurements } = logic.processMeasurement(
+        state.measurements,
+        action.payload.measure,
+        action.payload.settings
+      );
+      return { ...state, currentSpeed, measurements };
     default:
       return state;
   }
@@ -63,7 +70,10 @@ function trackEpic(action$, state$) {
             ({ coords: { latitude, longitude }, timestamp }) => {
               observer.next({
                 type: PROCESS_MEASUREMENT,
-                payload: { latitude, longitude, timestamp }
+                payload: {
+                  measure: { latitude, longitude, timestamp },
+                  settings: state.settings
+                }
               });
             },
             error =>
@@ -93,4 +103,4 @@ function autoStopTracking(action$, state$) {
   );
 }
 
-export const trackingEpic = trackEpic; // combineEpics(trackEpic, autoStopTracking);
+export const trackingEpic = combineEpics(trackEpic, autoStopTracking);

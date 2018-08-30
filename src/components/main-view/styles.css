@@ -1,0 +1,96 @@
+.background {
+    background-color: #84fab0;
+    background-image: linear-gradient(to bottom right, #84fab0 0%, #8fd3f4 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.toolbar {
+    font: 300 1.5rem Lato;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.ticker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    pointer-events: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    animation: none;
+    z-index: 3;
+}
+
+.heading {
+    font: 300 1.372rem Lato;
+    color: rgba(52,52,52, 0.5);
+}
+
+.error {
+    display: block;
+    font: 300 1.372rem Lato;
+    color: rgba(255,255,255, 0.75);
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    height: 10rem;
+}
+
+.speed {
+    font: 100 10rem Lato;
+    color: #fff;
+    height: 11rem;
+    line-height: 11rem;
+}
+
+.unit {
+    font: 300 1.372rem Lato;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.entering .ticker {
+    animation: reveal 500ms ease-in-out;
+}
+.exiting .ticker {
+    animation: reveal 500ms ease-in-out reverse forwards;
+}
+.entering .toolbar {
+    animation: fadeIn 500ms ease-in-out;
+}
+.exiting .toolbar {
+    animation: fadeIn 500ms ease-in-out reverse forwards;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}

@@ -1,0 +1,140 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    color: #343434;
+    background: #fff;
+    line-height: 1.4287;
+}
+
+.container.exiting .questions, .container.exiting .credits {
+    animation: zoomIn 500ms ease-in-out reverse forwards;
+}
+
+.container.exiting .divider {
+    animation: dividerShimmer 500ms ease-in-out reverse forwards;
+}
+
+.container.entering .questions, .container.entering .credits {
+    animation: zoomIn 500ms ease-in-out;
+}
+
+.container.entering .divider {
+    animation: dividerShimmer 500ms ease-in-out;
+}
+
+.questions  {
+    flex: 0 0 70%;
+    padding: 7vw;
+    animation: none;
+}
+
+    .questions .title {
+        font:  300 1.5rem Lato;
+        color: #000;
+        margin: 0 0 .25rem;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between
+    }
+
+    .questions .question-wrapper {
+        margin: 1rem 0;
+    }
+
+    .questions .question-wrapper .question {
+        font: 300 1.375rem Lato;
+        margin: .25rem 0;
+        display: block;
+    }
+
+    .questions .question-wrapper .answer {
+        font: 400 1.1rem Lato;
+        display: block;
+    }
+
+.credits {
+    flex: 0 0 30%;
+    padding: 7vw;
+    position: relative;
+    overflow: hidden;
+    animation: none;
+}
+
+    .credits .title {
+        font:  400 1.5rem Lato;
+        margin: 0 0 .25rem;
+    }
+
+    .credits .items-wrapper {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-content: space-between;
+        line-height: normal;
+        height: 100%;
+        height: calc(100% - 7vw);
+        font-size: 0.9rem;
+    }
+
+    .credits .item {
+        width: 50%;
+        width: calc(50% - 1.75vw);
+        margin: .45em 0;
+    }
+
+        .credits .item .heading {
+            font: 400 1.125em Lato;
+            margin: 0;
+            display: block;
+            overflow: hidden;
+        }
+
+        .credits .item a.heading {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .credits .item .sub {
+            font: 300 1.125em Lato;
+            display: block;
+        }
+
+.divider {
+    background-color: #8fd3f4;
+    background-image: linear-gradient(to bottom right, #84fab0 0%, #8fd3f4 100%);
+    position: absolute;
+    top: 69.5%;
+    left: 0;
+    right: 0;
+    height: 1%;
+    z-index: 2;
+    animation: none;
+}
+
+@keyframes dividerShimmer {
+    from {
+        top: 0;
+        height: 100%;
+    }
+    to {
+        top: 69.5%;
+        height: 1%;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}

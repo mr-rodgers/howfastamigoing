@@ -7,7 +7,8 @@
   "author": "Te-jé Rodgers <tjd.rodgers@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development --host 0.0.0.0"
+    "start": "webpack-dev-server --mode development --host 0.0.0.0",
+    "deploy": "webpack --mode production && firebase deploy"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -16,18 +17,25 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
+    "great-circle": "^0.2.8",
+    "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-hot-loader": "^4.3.4",
     "react-redux": "^5.0.7",
+    "react-transition-group": "^2.4.0",
     "redux": "^4.0.0",
     "redux-observable": "^1.0.0",
     "rxjs": "^6.2.2"

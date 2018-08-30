@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font: 100% Lato, "Trebuchet MS", "Lucida Grande", "Tahoma", sans-serif;
+}
+
+.app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    padding: 7vw;
+}
+
+
+.icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+    .icon.clickable {
+        cursor: pointer;
+    }
+
+    .icon:first-child {
+        margin: -.25em .25em 0 -.25em;
+    }
+
+    .icon:last-child {
+        margin: -.25em -.25em 0 .25em;
+    }

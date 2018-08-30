@@ -3,13 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
     <title>React Starter</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+    <link href="css/icons.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#84fab0">
   </head>
   <body>
     <div id="root"></div>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <script src="../dist/bundle.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
   </body>
 </html>
